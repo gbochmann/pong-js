@@ -1,0 +1,17 @@
+{
+	"extends": "eslint:recommended",
+    "installedESLint": true,
+    "rules": {
+    	"no-multiple-empty-lines": "off",
+    	"vars-on-top": "warn",
+    	"no-unused-vars": "warn",
+    	"no-console": "off",
+    	"semi": ["warn", "always"]
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+    	"_": true
+    }
+}
