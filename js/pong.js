@@ -10,14 +10,6 @@ var canvas = document.getElementById('canvas'),
 	background;
 
 
-
-function move () {
-	if (this.x && this.dx) this.x += this.dx;
-	if (this.y && this.dy) this.y += this.dy;
-}
-
-
-
 objList = [
 	background = new Rectangle(canvas.width, canvas.height, bgColor), // Background rectangle
 	one = new Rectangle(20, 80, 'green', 10, canvas.height/2 - 40), // Player 1
