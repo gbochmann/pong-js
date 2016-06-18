@@ -3,7 +3,7 @@ var Ball = function (radius, color, x, y) {
 	this.color;
 	this.x = x || 0;
 	this.y = y || 0;
-	this.dx = 5;
+	this.dx = 2;
 	this.dy = 2;
 };
 

@@ -9,6 +9,7 @@ var Rectangle = function (width, height, color, x, y) {
 	this.color = color;
 };
 
+
 _.extend(Rectangle.prototype, {
 	draw: function drawRect() {
 		ctx.fillStyle = this.color;
@@ -16,3 +17,6 @@ _.extend(Rectangle.prototype, {
 	},
 	move: move
 });
+
+var RectangleProxy = function () {};
+RectangleProxy.prototype = Rectangle.prototype;

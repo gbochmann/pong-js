@@ -6,9 +6,9 @@ _.extend(KeyManager.prototype, {
 	register: function (listener) {
 		this.listeners.push(listener);
 	},
-	process: function (keyName) {
+	process: function (event) {
 		_.each(this.listeners, function (listener) {
-			listener(keyName);
+			listener(event);
 		})
 	}
 });
