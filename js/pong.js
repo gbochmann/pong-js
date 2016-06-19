@@ -30,6 +30,7 @@ keyMan.register(two.keyEventListener.bind(two));
 (function draw () {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	_.each(objList, function (obj) {
+		if (obj.collisionDetection) obj.collisionDetection();
 		obj.move();
 		obj.draw();
 	});
