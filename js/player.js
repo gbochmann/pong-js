@@ -10,7 +10,6 @@ Player.prototype = new RectangleProxy();
 _.extend(Player.prototype, {
 	move: function () {
 		if (this.y && this.dy) this.y += this.dy;
-		console.log(this.dy);
 	},
 	keyEventListener: function (keypress) {
 		var type = keypress.type;
