@@ -18,5 +18,3 @@ _.extend(Rectangle.prototype, {
 	move: move
 });
 
-var RectangleProxy = function () {};
-RectangleProxy.prototype = Rectangle.prototype;

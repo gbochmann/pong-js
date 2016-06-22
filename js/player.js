@@ -1,11 +1,9 @@
-var Player = function (upBtn, downBtn, width, height, color, x, y) {
+var Player = child(Rectangle, function (upBtn, downBtn, width, height, color, x, y) {
 	Rectangle.prototype.constructor.call(this, width, height, color, x, y);
 	this.upBtn = upBtn;
 	this.downBtn = downBtn;
 	this.dy = 0;
-}
-
-Player.prototype = new RectangleProxy();
+});
 
 _.extend(Player.prototype, {
 	move: function () {
@@ -20,7 +18,7 @@ _.extend(Player.prototype, {
 		if (key === this.upBtn) this.dy = -acceleration;
 		if (key === this.downBtn) this.dy = acceleration;
 	},
-	collisionDetection: function () {
+	detectCollision: function () {
 		if (this.y + this.dy > canvas.height - this.height) this.dy = 0;
 		if (this.y + this.dy < 0 + this.width/2) this.dy = 0;
 	}
