@@ -1,10 +1,11 @@
+/* globals ctx, hasMovement, hasCollision */
 var Ball = function (radius, color, x, y) {
 	this.radius = radius;
 	this.color;
 	this.x = x || 0;
 	this.y = y || 0;
-	this.dx = 2;
-	this.dy = 2;
+	this.dx = 8;
+	this.dy = 0;
 };
 
 _.extend(Ball.prototype, {
@@ -14,6 +15,8 @@ _.extend(Ball.prototype, {
 		ctx.arc(this.x, this.y, this.radius, 0, Math.PI + (Math.PI * 360)/2);
 		ctx.fill();
 		ctx.closePath();
-	},
-	move: move
+	}
 });
+
+_.extend(Ball.prototype, hasMovement);
+_.extend(Ball.prototype, hasCollision);

@@ -9,6 +9,6 @@ _.extend(KeyManager.prototype, {
 	process: function (event) {
 		_.each(this.listeners, function (listener) {
 			listener(event);
-		})
+		});
 	}
 });
