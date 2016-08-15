@@ -1,4 +1,4 @@
-/* globals ctx, hasMovement, hasCollision */
+/* globals ctx, hasMovement, hasCollision, hasCollisionBounce */
 var Ball = function (radius, color, x, y) {
 	this.radius = radius;
 	this.color;
@@ -6,6 +6,8 @@ var Ball = function (radius, color, x, y) {
 	this.y = y || 0;
 	this.dx = 8;
 	this.dy = 0;
+	this.xBorder = this.radius;
+	this.yBorder = this.radius;
 };
 
 _.extend(Ball.prototype, {
@@ -20,3 +22,4 @@ _.extend(Ball.prototype, {
 
 _.extend(Ball.prototype, hasMovement);
 _.extend(Ball.prototype, hasCollision);
+_.extend(Ball.prototype, hasCollisionBounce);
