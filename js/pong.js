@@ -1,4 +1,4 @@
-/* global Rectangle, Player, Ball, KeyManager, collider*/
+/* global Rectangle, Player, Ball, KeyManager, collider, registerKeyEvents */
 var canvas = document.getElementById('canvas'),
 	ctx = canvas.getContext('2d'),
 	bgColor = 'black',
@@ -12,9 +12,6 @@ var canvas = document.getElementById('canvas'),
 	keyMan;
 var boundProcess;
 
-keyMan = new KeyManager();
-
-
 background = new Rectangle(canvas.width, canvas.height, bgColor); // Background rectangle
 one = new Player('KeyA', 'KeyS', 20, 80, 'green', 10, canvas.height/2 - 40, false); // Player 1
 two = new Player('ArrowUp', 'ArrowDown', 20, 80, 'green', canvas.width - 30, canvas.height/2 - 40, true); // Player 2
@@ -26,13 +23,7 @@ collidables = _.filter(objList, function (obj) {
 	return obj.isColliding != null;
 });
 
-boundProcess = keyMan.process.bind(keyMan);
-
-document.addEventListener('keydown', boundProcess);
-document.addEventListener('keyup', boundProcess);
-
-keyMan.register(one.keyEventListener.bind(one));
-keyMan.register(two.keyEventListener.bind(two));
+registerKeyEvents(one, two);
 
 (function draw () {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);

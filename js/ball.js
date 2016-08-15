@@ -4,7 +4,7 @@ var Ball = function (radius, color, x, y) {
 	this.color;
 	this.x = x || 0;
 	this.y = y || 0;
-	this.dx = 8;
+	this.dx = 0;
 	this.dy = 0;
 	this.xBorder = this.radius;
 	this.yBorder = this.radius;

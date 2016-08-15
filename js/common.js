@@ -9,7 +9,6 @@ var hasCollision = { // eslint-disable-line no-unused-vars
 		var xCollison = this.xBorder > xDistance;
 		var yCollision = this.yBorder > yDistance;
 		this.isColliding = xCollison || yCollision;
-		console.log(this.isColliding);
 		if (this.isColliding) this.collisionReaction();
 	},
 	isColliding: false
@@ -56,3 +55,15 @@ function checkCollisions(target, collidable) {
 	target.findCollision(collidable);
 	return target;
 }
+
+function registerKeyEvents () {
+	var args = [].slice.call(arguments,0);
+	_.each(args, function (player) {
+		document.addEventListener('keydown', player.keyEventListener.bind(player));
+		document.addEventListener('keyup', player.keyEventListener.bind(player));
+	});
+}
+
+
+
+
