@@ -1,10 +1,12 @@
-/* globals child, hasMovement, hasCollision, Rectangle */
+/* globals child, hasMovement Rectangle getDistance transpose */
 var Player = child(Rectangle, function (upBtn, downBtn, width, height, color, x, y, left) {
 	Rectangle.prototype.constructor.call(this, width, height, color, x, y);
 	this.upBtn = upBtn;
 	this.downBtn = downBtn;
 	this.dy = 0;
-	this.xBorder = left ? 0 : this.width;
+	this.side = left ? -1 : 1;
+	this.xBorder = left ? width + 10: 10;
+	this.height = height;
 });
 
 _.extend(Player.prototype, {
@@ -16,8 +18,17 @@ _.extend(Player.prototype, {
 		if (type === 'keyup') acceleration = 0;
 		if (key === this.upBtn) this.dy = -acceleration;
 		if (key === this.downBtn) this.dy = acceleration;
+	},
+	findCollision: function playerFindCollision(ball) {
+		var playerX = transpose(this.x, ball.x) * this.side;
+		var ballY = ball.y;
+		var lower = this.y + this.height;
+		var upper = this.y;
+		if (playerX < 0 + this.xBorder) {
+			if (ballY < lower && ballY > upper) return true;
+		}
+		return false;
 	}
 });
 
 _.extend(Player.prototype, hasMovement);
-_.extend(Player.prototype, hasCollision);

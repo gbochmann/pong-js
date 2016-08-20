@@ -2,12 +2,12 @@ var hasMovement = { // eslint-disable-line no-unused-vars
 	move: move
 };
 
-function norm(num) {
-	return num < 0 ? -num : num;
-}
-
 function transpose (original, reference) {
 	return original - reference;
+}
+
+function getDistance(a, b) {
+	return Math.abs(a - b);
 }
 
 function move () {
