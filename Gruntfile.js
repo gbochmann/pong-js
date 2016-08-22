@@ -1,9 +1,9 @@
 /* global require module */
 module.exports = function (grunt) {
-    require("load-grunt-tasks")(grunt); // npm install --save-dev load-grunt-tasks
+    require("load-grunt-tasks")(grunt, { pattern: ['grunt-*', '@*/grunt-*'] }); // npm install --save-dev load-grunt-tasks
 
     grunt.initConfig({
-        "babel": {
+        babel: {
             options: {
                 sourceMap: true
             },
@@ -16,8 +16,16 @@ module.exports = function (grunt) {
                     dest: 'dist/'
                 }]
             }
+        },
+        watch: {
+            scripts: {
+                files: ['src/*.es6'],
+                tasks: ['babel'],
+                options: {}
+            }
         }
     });
 
     grunt.registerTask("default", ["babel"]);
+
 };
