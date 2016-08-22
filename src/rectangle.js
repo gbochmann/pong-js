@@ -1,5 +1,8 @@
 /* globals ctx */
-var Rectangle = function (width, height, color, x, y) {
+
+var _ = require('node_modules/underscore/underscore.js');
+var Rectangle; 
+export default Rectangle = function (width, height, color, x, y) {
 	this.x = x || 0;
 	this.y = y || 0;
 	this.dx = 0;

@@ -1,4 +1,7 @@
-/* globals ctx, hasMovement, hasCollisionBounce */
+/* globals _ hasMovement hasCollisionBounce */
+
+import ctx from 'pong';
+
 var Ball = function (radius, color, x, y) {
 	this.radius = radius;
 	this.color;
@@ -19,6 +22,8 @@ _.extend(Ball.prototype, {
 		ctx.closePath();
 	}
 });
+
+console.log('1');
 
 _.extend(Ball.prototype, hasMovement);
 _.extend(Ball.prototype, hasCollisionBounce);

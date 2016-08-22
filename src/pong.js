@@ -1,4 +1,6 @@
-/* global Rectangle, Player, Ball, registerKeyEvents */
+/* global Ball, registerKeyEvents */
+
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var bgColor = 'black';
@@ -15,6 +17,11 @@ var two;
 var middleLine;
 var background;
 
+import * as Rectangle from 'rectangle';
+import * as Player from 'player';
+import * as _ from 'underscore';
+
+export {ctx};
 
 function determineSide(position, halfField) {
 	return position < halfField;
